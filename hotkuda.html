@@ -1,0 +1,1856 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Турагентство "Хоть Куда" - лучшие туры по всему миру</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1a5f7a;
+            --secondary-color: #57cc99;
+            --accent-color: #ff7b54;
+            --light-color: #f8f9fa;
+            --dark-color: #2d3748;
+            --text-color: #4a5568;
+            --gradient: linear-gradient(135deg, #1a5f7a 0%, #57cc99 100%);
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f8fafc;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            color: var(--dark-color);
+        }
+        
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--primary-color) !important;
+            font-size: 1.8rem;
+        }
+        
+        .nav-link {
+            color: var(--dark-color) !important;
+            font-weight: 500;
+            margin: 0 10px;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(26, 95, 122, 0.85), rgba(26, 95, 122, 0.9)), url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            padding: 150px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%231a5f7a' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.3;
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            margin-bottom: 40px;
+            padding-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 3px;
+            background: var(--gradient);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-bottom: 25px;
+            overflow: hidden;
+            height: 100%;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .card:hover .card-img-top {
+            transform: scale(1.05);
+        }
+        
+        .card-header {
+            background: var(--gradient);
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            font-weight: 600;
+        }
+        
+        .btn-primary {
+            background: var(--gradient);
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(87, 204, 153, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(87, 204, 153, 0.4);
+        }
+        
+        .btn-outline-primary {
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            background: transparent;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-outline-primary:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+        
+        .tour-card {
+            border-left: 5px solid var(--secondary-color);
+            transition: all 0.3s;
+        }
+        
+        .tour-card.featured {
+            border-left: 5px solid var(--accent-color);
+        }
+        
+        .tour-card.featured::before {
+            content: 'Рекомендуем';
+            position: absolute;
+            top: 15px;
+            right: -30px;
+            background: var(--accent-color);
+            color: white;
+            padding: 5px 30px;
+            transform: rotate(45deg);
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 1;
+        }
+        
+        .search-form {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            margin-bottom: 40px;
+        }
+        
+        footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 60px 0 30px;
+            margin-top: 80px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .login-modal, .booking-modal, .register-modal {
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        
+        .modal-header {
+            background: var(--gradient);
+            color: white;
+            border: none;
+            padding: 20px;
+        }
+        
+        .modal-title {
+            font-weight: 700;
+        }
+        
+        .dashboard-card {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: 15px;
+            background: white;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+        
+        .dashboard-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .dashboard-icon {
+            font-size: 3.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .table-responsive {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .table thead {
+            background: var(--gradient);
+            color: white;
+        }
+        
+        .table tbody tr:hover {
+            background-color: rgba(87, 204, 153, 0.1);
+        }
+        
+        .badge {
+            padding: 8px 12px;
+            border-radius: 50px;
+            font-weight: 500;
+        }
+        
+        .notification {
+            position: fixed;
+            top: 90px;
+            right: 20px;
+            z-index: 1050;
+            display: none;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            animation: slideIn 0.5s, slideOut 0.5s 2.5s;
+        }
+        
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        @keyframes slideOut {
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(100%); opacity: 0; }
+        }
+        
+        .admin-section {
+            display: none;
+        }
+        
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--gradient);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            margin-right: 10px;
+        }
+        
+        .user-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            min-width: 200px;
+            z-index: 1000;
+            overflow: hidden;
+        }
+        
+        .user-menu.show {
+            display: block;
+        }
+        
+        .user-menu-item {
+            padding: 12px 20px;
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .user-menu-item:hover {
+            background: #f8f9fa;
+        }
+        
+        .user-menu-item:last-child {
+            border-bottom: none;
+        }
+        
+        .pagination .page-link {
+            color: var(--primary-color);
+            border: 1px solid #dee2e6;
+        }
+        
+        .pagination .page-item.active .page-link {
+            background: var(--gradient);
+            border-color: var(--primary-color);
+        }
+        
+        .destination-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            height: 300px;
+            margin-bottom: 30px;
+        }
+        
+        .destination-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .destination-card:hover img {
+            transform: scale(1.1);
+        }
+        
+        .destination-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: white;
+            padding: 20px;
+        }
+        
+        .price-tag {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--accent-color);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .rating {
+            color: #ffc107;
+            margin-bottom: 10px;
+        }
+        
+        .progress {
+            height: 10px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+        
+        .progress-bar {
+            background: var(--gradient);
+            border-radius: 10px;
+        }
+        
+        .filter-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .filter-tag {
+            background: #e9ecef;
+            padding: 5px 15px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .filter-tag.active {
+            background: var(--gradient);
+            color: white;
+        }
+        
+        .search-icon {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--primary-color);
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+        
+        .user-bookings {
+            display: none;
+        }
+        
+        .booking-card {
+            border-left: 4px solid var(--secondary-color);
+            margin-bottom: 15px;
+        }
+        
+        .booking-card.cancelled {
+            border-left-color: #dc3545;
+            opacity: 0.7;
+        }
+        
+        .booking-card.completed {
+            border-left-color: #28a745;
+        }
+    </style>
+</head>
+<body>
+    <!-- Навигационная панель -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-plane"></i> Хоть Куда
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home"><i class="fas fa-home"></i> Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#tours"><i class="fas fa-suitcase"></i> Туры</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#destinations"><i class="fas fa-map-marked-alt"></i> Направления</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about"><i class="fas fa-info-circle"></i> О нас</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown" id="userMenuContainer">
+                        <a class="nav-link" href="#" id="userMenuToggle">
+                            <span class="user-avatar" id="userAvatar">Г</span>
+                            <span id="userName">Гость</span>
+                            <i class="fas fa-chevron-down ms-1"></i>
+                        </a>
+                        <div class="user-menu" id="userMenu">
+                            <div class="user-menu-item" onclick="showLoginModal()">
+                                <i class="fas fa-sign-in-alt me-2"></i> Войти
+                            </div>
+                            <div class="user-menu-item" onclick="showRegisterModal()">
+                                <i class="fas fa-user-plus me-2"></i> Регистрация
+                            </div>
+                            <div class="user-menu-item d-none" id="clientMenu" onclick="showUserBookings()">
+                                <i class="fas fa-suitcase me-2"></i> Мои бронирования
+                            </div>
+                            <div class="user-menu-item d-none" id="managerMenu" onclick="showAdminPanel()">
+                                <i class="fas fa-tachometer-alt me-2"></i> Панель управления
+                            </div>
+                            <div class="user-menu-item d-none" id="logoutItem" onclick="logout()">
+                                <i class="fas fa-sign-out-alt me-2"></i> Выйти
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Уведомление -->
+    <div class="alert alert-success notification" role="alert" id="notification">
+        <i class="fas fa-check-circle"></i> <span id="notification-text">Операция выполнена успешно!</span>
+    </div>
+
+    <!-- Главный раздел -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <h1 class="hero-title">Откройте мир с нами!</h1>
+            <p class="hero-subtitle">Турагентство "Хоть Куда" предлагает лучшие туры по всему миру. От пляжного отдыха до экскурсионных туров - у нас есть всё для вашего идеального отпуска.</p>
+            <a href="#tours" class="btn btn-primary btn-lg mt-3">Найти тур</a>
+        </div>
+    </section>
+
+    <!-- Раздел с информацией о системе -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center">Почему выбирают нас?</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <div class="feature-icon">
+                                <i class="fas fa-globe-americas"></i>
+                            </div>
+                            <h5 class="card-title">100+ направлений</h5>
+                            <p class="card-text">Широкий выбор туров по всему миру - от популярных курортов до экзотических мест.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <div class="feature-icon">
+                                <i class="fas fa-hand-holding-usd"></i>
+                            </div>
+                            <h5 class="card-title">Лучшие цены</h5>
+                            <p class="card-text">Гарантия лучшей цены благодаря прямым контрактам с отелями и авиакомпаниями.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <div class="feature-icon">
+                                <i class="fas fa-headset"></i>
+                            </div>
+                            <h5 class="card-title">Поддержка 24/7</h5>
+                            <p class="card-text">Круглосуточная поддержка наших клиентов во время всего путешествия.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Раздел поиска и бронирования туров -->
+    <section id="tours" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Наши туры</h2>
+            
+            <!-- Форма поиска -->
+            <div class="search-form">
+                <form id="searchForm">
+                    <div class="row g-3">
+                        <div class="col-md-3">
+                            <label for="destination" class="form-label">Направление</label>
+                            <select class="form-select" id="destination">
+                                <option value="">Все направления</option>
+                                <option value="turkey">Турция</option>
+                                <option value="egypt">Египет</option>
+                                <option value="thailand">Тайланд</option>
+                                <option value="greece">Греция</option>
+                                <option value="spain">Испания</option>
+                                <option value="cyprus">Кипр</option>
+                                <option value="maldives">Мальдивы</option>
+                                <option value="uae">ОАЭ</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="tourType" class="form-label">Тип отдыха</label>
+                            <select class="form-select" id="tourType">
+                                <option value="">Все типы</option>
+                                <option value="beach">Пляжный</option>
+                                <option value="excursion">Экскурсионный</option>
+                                <option value="cruise">Круиз</option>
+                                <option value="ski">Горнолыжный</option>
+                                <option value="safari">Сафари</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="dateFrom" class="form-label">Дата с</label>
+                            <input type="date" class="form-control" id="dateFrom">
+                        </div>
+                        <div class="col-md-2">
+                            <label for="dateTo" class="form-label">Дата по</label>
+                            <input type="date" class="form-control" id="dateTo">
+                        </div>
+                        <div class="col-md-3 position-relative">
+                            <label for="priceRange" class="form-label">Цена, руб.</label>
+                            <input type="range" class="form-range" id="priceRange" min="10000" max="200000" step="10000" value="100000">
+                            <div id="priceValue" class="text-center">до 100 000 руб.</div>
+                        </div>
+                    </div>
+                    <div class="mt-4 text-center">
+                        <button type="submit" class="btn btn-primary me-2">Найти туры</button>
+                        <button type="reset" class="btn btn-outline-primary">Сбросить фильтры</button>
+                    </div>
+                </form>
+            </div>
+            
+            <!-- Фильтры по тегам -->
+            <div class="filter-tags">
+                <div class="filter-tag active" data-filter="all">Все туры</div>
+                <div class="filter-tag" data-filter="featured">Рекомендуемые</div>
+                <div class="filter-tag" data-filter="beach">Пляжный отдых</div>
+                <div class="filter-tag" data-filter="excursion">Экскурсии</div>
+                <div class="filter-tag" data-filter="hot">Горящие туры</div>
+            </div>
+            
+            <!-- Список туров -->
+            <div class="row" id="toursList">
+                <!-- Туры будут загружены через JavaScript -->
+            </div>
+            
+            <!-- Пагинация -->
+            <nav aria-label="Навигация по страницам">
+                <ul class="pagination justify-content-center" id="pagination">
+                    <!-- Пагинация будет создана через JavaScript -->
+                </ul>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Раздел популярных направлений -->
+    <section id="destinations" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Популярные направления</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="destination-card">
+                        <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Турция">
+                        <div class="destination-overlay">
+                            <h4>Турция</h4>
+                            <p>От 35 000 руб.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="destination-card">
+                        <img src="https://images.unsplash.com/photo-1519451241324-20b4ea2c4220?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Египет">
+                        <div class="destination-overlay">
+                            <h4>Египет</h4>
+                            <p>От 45 000 руб.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="destination-card">
+                        <img src="https://images.unsplash.com/photo-1534008897995-27a23e859048?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Тайланд">
+                        <div class="destination-overlay">
+                            <h4>Тайланд</h4>
+                            <p>От 65 000 руб.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Раздел о компании -->
+    <section id="about" class="py-5 bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h2 class="section-title">О компании "Хоть Куда"</h2>
+                    <p>Мы работаем на туристическом рынке более 15 лет, предлагая нашим клиентам только лучшие направления и отели по всему миру.</p>
+                    <p>Наша команда профессионалов всегда готова помочь вам с выбором идеального тура, учитывая все ваши пожелания и бюджет.</p>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-check text-success me-2"></i> Более 100 000 довольных клиентов</li>
+                        <li><i class="fas fa-check text-success me-2"></i> Прямые контракты с отелями</li>
+                        <li><i class="fas fa-check text-success me-2"></i> Собственная служба поддержки</li>
+                        <li><i class="fas fa-check text-success me-2"></i> Лучшие цены на рынке</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary mt-3">Связаться с нами</a>
+                </div>
+                <div class="col-md-6">
+                    <img src="https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="О компании" class="img-fluid rounded shadow">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Раздел моих бронирований (для клиентов) -->
+    <section id="userBookings" class="user-bookings py-5">
+        <div class="container">
+            <h2 class="section-title">Мои бронирования</h2>
+            <div id="userBookingsList">
+                <!-- Бронирования будут загружены через JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Административный раздел (скрыт для обычных пользователей) -->
+    <section id="admin" class="admin-section py-5">
+        <div class="container">
+            <h2 class="section-title">Панель управления</h2>
+            
+            <div class="row mb-4">
+                <div class="col-md-3">
+                    <div class="dashboard-card">
+                        <div class="dashboard-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-number" id="totalClients">0</div>
+                        <div>Всего клиентов</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="dashboard-card">
+                        <div class="dashboard-icon">
+                            <i class="fas fa-suitcase"></i>
+                        </div>
+                        <div class="stat-number" id="totalBookings">0</div>
+                        <div>Бронирований</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="dashboard-card">
+                        <div class="dashboard-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="stat-number" id="totalRevenue">0</div>
+                        <div>Доход, руб.</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="dashboard-card">
+                        <div class="dashboard-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="stat-number" id="avgRating">0</div>
+                        <div>Средняя оценка</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0">Управление клиентами</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>ФИО</th>
+                                            <th>Телефон</th>
+                                            <th>Email</th>
+                                            <th>Статус</th>
+                                            <th>Действия</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="clientsTable">
+                                        <!-- Данные клиентов будут загружены через JavaScript -->
+                                    </tbody>
+                                </table>
+                            </div>
+                            <button class="btn btn-primary mt-3" onclick="addClient()">
+                                <i class="fas fa-plus"></i> Добавить клиента
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0">Отчет по бронированиям</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>ID бронирования</th>
+                                            <th>Клиент</th>
+                                            <th>Тур</th>
+                                            <th>Дата</th>
+                                            <th>Стоимость</th>
+                                            <th>Статус</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="bookingsTable">
+                                        <!-- Данные бронирований будут загружены через JavaScript -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Турагентство "Хоть Куда"</h5>
+                    <p>Лучшие туры по всему миру с гарантией качества и лучшей цены.</p>
+                    <div class="social-links mt-3">
+                        <a href="#" class="text-light me-3"><i class="fab fa-vk"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-telegram"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-light"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h5>Контакты</h5>
+                    <p><i class="fas fa-map-marker-alt me-2"></i> Москва, ул. Примерная, д. 123</p>
+                    <p><i class="fas fa-phone me-2"></i> +7 (495) 123-45-67</p>
+                    <p><i class="fas fa-envelope me-2"></i> info@hotkuda.ru</p>
+                    <p><i class="fas fa-clock me-2"></i> Пн-Пт: 9:00-20:00, Сб-Вс: 10:00-18:00</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Полезные ссылки</h5>
+                    <div class="footer-links">
+                        <a href="#home">Главная</a>
+                        <a href="#tours">Туры</a>
+                        <a href="#destinations">Направления</a>
+                        <a href="#about">О нас</a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p>&copy; 2025 Турагентство "Хоть Куда". Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Модальное окно входа -->
+    <div class="modal fade" id="loginModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content login-modal">
+                <div class="modal-header">
+                    <h5 class="modal-title">Вход в систему</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label for="loginEmail" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="loginEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="loginPassword" class="form-label">Пароль</label>
+                            <input type="password" class="form-control" id="loginPassword" required>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="rememberMe">
+                            <label class="form-check-label" for="rememberMe">Запомнить меня</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Войти</button>
+                    </form>
+                    <div class="text-center mt-3">
+                        <p>Нет аккаунта? <a href="#" onclick="showRegisterModal()">Зарегистрироваться</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно регистрации -->
+    <div class="modal fade" id="registerModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content register-modal">
+                <div class="modal-header">
+                    <h5 class="modal-title">Регистрация</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="registerForm">
+                        <div class="mb-3">
+                            <label for="registerName" class="form-label">ФИО</label>
+                            <input type="text" class="form-control" id="registerName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerEmail" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="registerEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerPhone" class="form-label">Телефон</label>
+                            <input type="tel" class="form-control" id="registerPhone" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerPassword" class="form-label">Пароль</label>
+                            <input type="password" class="form-control" id="registerPassword" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerPasswordConfirm" class="form-label">Подтверждение пароля</label>
+                            <input type="password" class="form-control" id="registerPasswordConfirm" required>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="agreeTerms" required>
+                            <label class="form-check-label" for="agreeTerms">Я согласен с условиями использования</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Зарегистрироваться</button>
+                    </form>
+                    <div class="text-center mt-3">
+                        <p>Уже есть аккаунт? <a href="#" onclick="showLoginModal()">Войти</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно бронирования -->
+    <div class="modal fade" id="bookingModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content booking-modal">
+                <div class="modal-header">
+                    <h5 class="modal-title">Бронирование тура</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="bookingForm">
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <h6 id="bookingTourName">Название тура</h6>
+                                <p id="bookingTourDetails">Детали тура</p>
+                            </div>
+                            <div class="col-md-6 text-end">
+                                <h5 id="bookingTourPrice">0 руб.</h5>
+                            </div>
+                        </div>
+                        
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="bookingDate" class="form-label">Дата вылета</label>
+                                <input type="date" class="form-control" id="bookingDate" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="bookingPersons" class="form-label">Количество человек</label>
+                                <input type="number" class="form-control" id="bookingPersons" min="1" max="10" value="1" required>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label">Дополнительные услуги</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="transferService" value="5000">
+                                <label class="form-check-label" for="transferService">
+                                    Трансфер (5,000 руб.)
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="insuranceService" value="3000">
+                                <label class="form-check-label" for="insuranceService">
+                                    Страховка (3,000 руб.)
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="excursionService" value="7000">
+                                <label class="form-check-label" for="excursionService">
+                                    Дополнительные экскурсии (7,000 руб.)
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="bookingNotes" class="form-label">Примечания</label>
+                            <textarea class="form-control" id="bookingNotes" rows="3"></textarea>
+                        </div>
+                        
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-success">Подтвердить бронирование</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Скрипты -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <script>
+        // Данные для демонстрации
+        const tours = [
+            { id: 1, name: "Отдых в Турции 5*", destination: "turkey", type: "beach", price: 85000, duration: "7 ночей", featured: true, image: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80", rating: 4.8, hot: false },
+            { id: 2, name: "Экскурсии по Египту", destination: "egypt", type: "excursion", price: 65000, duration: "10 ночей", featured: false, image: "https://images.unsplash.com/photo-1519451241324-20b4ea2c4220?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80", rating: 4.5, hot: true },
+            { id: 3, name: "Пляжный отдых в Тайланде", destination: "thailand", type: "beach", price: 120000, duration: "14 ночей", featured: true, image: "https://images.unsplash.com/photo-1534008897995-27a23e859048?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80", rating: 4.9, hot: false },
+            { id: 4, name: "Круиз по Греческим островам", destination: "greece", type: "cruise", price: 150000, duration: "8 ночей", featured: false, image: "https://images.unsplash.com/photo-1536152470836-b943b246224c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80", rating: 4.7, hot: true },
+            { id: 5, name: "Горнолыжный курорт в Испании", destination: "spain", type: "ski", price: 95000, duration: "7 ночей", featured: false, image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80", rating: 4.6, hot: false },
+            { id: 6, name: "Отдых на Кипре", destination: "cyprus", type: "beach", price: 78000, duration: "7 ночей", featured: true, image: "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80", rating: 4.8, hot: true },
+            { id: 7, name: "Сафари в Кении", destination: "kenya", type: "safari", price: 135000, duration: "10 ночей", featured: false, image: "https://images.unsplash.com/photo-1516426122078-c23e76319801?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80", rating: 4.9, hot: false },
+            { id: 8, name: "Отдых в ОАЭ", destination: "uae", type: "beach", price: 110000, duration: "8 ночей", featured: true, image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80", rating: 4.7, hot: true }
+        ];
+
+        // База менеджеров
+        const managers = [
+            { id: 1, name: "Менеджер Сергей", email: "manager@hotkuda.ru", password: "manager123", type: "manager" },
+            { id: 2, name: "Менеджер Анна", email: "anna@hotkuda.ru", password: "anna2025", type: "manager" },
+            { id: 3, name: "Администратор", email: "admin@hotkuda.ru", password: "admin123", type: "manager" }
+        ];
+
+        // База клиентов
+        let clients = [
+            { id: 1, name: "Иванов Иван Иванович", phone: "+7 (123) 456-78-90", email: "ivanov@example.com", status: "VIP", lastOrder: "2025-02-15", type: "client", password: "client123" },
+            { id: 2, name: "Петрова Анна Сергеевна", phone: "+7 (123) 456-78-91", email: "petrova@example.com", status: "Постоянный", lastOrder: "2025-02-10", type: "client", password: "client123" },
+            { id: 3, name: "Сидоров Алексей Петрович", phone: "+7 (123) 456-78-92", email: "sidorov@example.com", status: "Новый", lastOrder: "2025-02-05", type: "client", password: "client123" }
+        ];
+
+        // База бронирований
+        let bookings = [
+            { id: 1001, clientId: 1, clientName: "Иванов И.И.", tour: "Отдых в Турции", date: "2025-02-15", price: 85000, status: "Подтвержден" },
+            { id: 1002, clientId: 2, clientName: "Петрова А.С.", tour: "Экскурсии по Египту", date: "2025-02-10", price: 65000, status: "Оплачен" },
+            { id: 1003, clientId: 3, clientName: "Сидоров А.П.", tour: "Пляжный отдых в Тайланде", date: "2025-02-05", price: 120000, status: "Завершен" }
+        ];
+
+        // Текущий пользователь
+        let currentUser = null;
+        let currentPage = 1;
+        const toursPerPage = 6;
+
+        // Инициализация при загрузке страницы
+        document.addEventListener('DOMContentLoaded', function() {
+            // Загрузка туров
+            loadTours();
+            
+            // Обработчики событий
+            document.getElementById('searchForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                filterTours();
+            });
+            
+            document.getElementById('priceRange').addEventListener('input', function() {
+                document.getElementById('priceValue').textContent = `до ${this.value.toLocaleString()} руб.`;
+            });
+            
+            document.getElementById('loginForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                login();
+            });
+            
+            document.getElementById('registerForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                register();
+            });
+            
+            document.getElementById('bookingForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                bookTour();
+            });
+            
+            // Обработчики для фильтров по тегам
+            document.querySelectorAll('.filter-tag').forEach(tag => {
+                tag.addEventListener('click', function() {
+                    document.querySelectorAll('.filter-tag').forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    filterToursByTag(this.getAttribute('data-filter'));
+                });
+            });
+            
+            // Обработчик для меню пользователя
+            document.getElementById('userMenuToggle').addEventListener('click', function(e) {
+                e.preventDefault();
+                document.getElementById('userMenu').classList.toggle('show');
+            });
+            
+            // Закрытие меню при клике вне его
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('#userMenuContainer')) {
+                    document.getElementById('userMenu').classList.remove('show');
+                }
+            });
+            
+            // Проверка авторизации при загрузке
+            checkAuth();
+        });
+
+        // Функция загрузки туров
+        function loadTours(page = 1) {
+            currentPage = page;
+            const toursList = document.getElementById('toursList');
+            toursList.innerHTML = '';
+            
+            const startIndex = (page - 1) * toursPerPage;
+            const endIndex = startIndex + toursPerPage;
+            const toursToShow = tours.slice(startIndex, endIndex);
+            
+            if (toursToShow.length === 0) {
+                toursList.innerHTML = '<div class="col-12 text-center"><p>По вашему запросу туров не найдено.</p></div>';
+                return;
+            }
+            
+            toursToShow.forEach(tour => {
+                const tourCard = document.createElement('div');
+                tourCard.className = `col-md-6 col-lg-4 mb-4`;
+                
+                // Генерация звезд рейтинга
+                let stars = '';
+                for (let i = 1; i <= 5; i++) {
+                    if (i <= Math.floor(tour.rating)) {
+                        stars += '<i class="fas fa-star"></i>';
+                    } else if (i === Math.ceil(tour.rating) && tour.rating % 1 !== 0) {
+                        stars += '<i class="fas fa-star-half-alt"></i>';
+                    } else {
+                        stars += '<i class="far fa-star"></i>';
+                    }
+                }
+                
+                tourCard.innerHTML = `
+                    <div class="card tour-card ${tour.featured ? 'featured' : ''} ${tour.hot ? 'hot' : ''}">
+                        <div class="position-relative">
+                            <img src="${tour.image}" class="card-img-top" alt="${tour.name}">
+                            ${tour.hot ? '<span class="badge bg-danger position-absolute top-0 start-0 m-2">Горящий тур</span>' : ''}
+                            <div class="price-tag">${tour.price.toLocaleString()} руб.</div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">${tour.name}</h5>
+                            <div class="rating">${stars} <span class="text-muted">${tour.rating}</span></div>
+                            <p class="card-text">
+                                <i class="fas fa-map-marker-alt"></i> ${getDestinationName(tour.destination)}<br>
+                                <i class="fas fa-calendar-alt"></i> ${tour.duration}<br>
+                                <i class="fas fa-tag"></i> ${getTourTypeName(tour.type)}
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <button class="btn btn-outline-primary btn-sm" onclick="viewTourDetails(${tour.id})">
+                                    <i class="fas fa-info-circle"></i> Подробнее
+                                </button>
+                                <button class="btn btn-primary btn-sm" onclick="bookTourModal(${tour.id})" ${currentUser ? '' : 'disabled'}>
+                                    <i class="fas fa-shopping-cart"></i> Забронировать
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                toursList.appendChild(tourCard);
+            });
+            
+            // Создание пагинации
+            createPagination();
+        }
+
+        // Функция создания пагинации
+        function createPagination() {
+            const totalPages = Math.ceil(tours.length / toursPerPage);
+            const pagination = document.getElementById('pagination');
+            pagination.innerHTML = '';
+            
+            if (totalPages <= 1) return;
+            
+            // Кнопка "Назад"
+            const prevLi = document.createElement('li');
+            prevLi.className = `page-item ${currentPage === 1 ? 'disabled' : ''}`;
+            prevLi.innerHTML = `<a class="page-link" href="#" onclick="loadTours(${currentPage - 1})">Назад</a>`;
+            pagination.appendChild(prevLi);
+            
+            // Номера страниц
+            for (let i = 1; i <= totalPages; i++) {
+                const pageLi = document.createElement('li');
+                pageLi.className = `page-item ${i === currentPage ? 'active' : ''}`;
+                pageLi.innerHTML = `<a class="page-link" href="#" onclick="loadTours(${i})">${i}</a>`;
+                pagination.appendChild(pageLi);
+            }
+            
+            // Кнопка "Вперед"
+            const nextLi = document.createElement('li');
+            nextLi.className = `page-item ${currentPage === totalPages ? 'disabled' : ''}`;
+            nextLi.innerHTML = `<a class="page-link" href="#" onclick="loadTours(${currentPage + 1})">Вперед</a>`;
+            pagination.appendChild(nextLi);
+        }
+
+        // Функция фильтрации туров
+        function filterTours() {
+            const destination = document.getElementById('destination').value;
+            const tourType = document.getElementById('tourType').value;
+            const dateFrom = document.getElementById('dateFrom').value;
+            const dateTo = document.getElementById('dateTo').value;
+            const maxPrice = parseInt(document.getElementById('priceRange').value);
+            
+            const filteredTours = tours.filter(tour => {
+                // Фильтрация по направлению
+                if (destination && tour.destination !== destination) return false;
+                
+                // Фильтрация по типу тура
+                if (tourType && tour.type !== tourType) return false;
+                
+                // Фильтрация по цене
+                if (tour.price > maxPrice) return false;
+                
+                return true;
+            });
+            
+            // Обновление списка туров
+            const toursList = document.getElementById('toursList');
+            toursList.innerHTML = '';
+            
+            if (filteredTours.length === 0) {
+                toursList.innerHTML = '<div class="col-12 text-center"><p>По вашему запросу туров не найдено.</p></div>';
+                return;
+            }
+            
+            filteredTours.forEach(tour => {
+                const tourCard = document.createElement('div');
+                tourCard.className = `col-md-6 col-lg-4 mb-4`;
+                
+                // Генерация звезд рейтинга
+                let stars = '';
+                for (let i = 1; i <= 5; i++) {
+                    if (i <= Math.floor(tour.rating)) {
+                        stars += '<i class="fas fa-star"></i>';
+                    } else if (i === Math.ceil(tour.rating) && tour.rating % 1 !== 0) {
+                        stars += '<i class="fas fa-star-half-alt"></i>';
+                    } else {
+                        stars += '<i class="far fa-star"></i>';
+                    }
+                }
+                
+                tourCard.innerHTML = `
+                    <div class="card tour-card ${tour.featured ? 'featured' : ''} ${tour.hot ? 'hot' : ''}">
+                        <div class="position-relative">
+                            <img src="${tour.image}" class="card-img-top" alt="${tour.name}">
+                            ${tour.hot ? '<span class="badge bg-danger position-absolute top-0 start-0 m-2">Горящий тур</span>' : ''}
+                            <div class="price-tag">${tour.price.toLocaleString()} руб.</div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">${tour.name}</h5>
+                            <div class="rating">${stars} <span class="text-muted">${tour.rating}</span></div>
+                            <p class="card-text">
+                                <i class="fas fa-map-marker-alt"></i> ${getDestinationName(tour.destination)}<br>
+                                <i class="fas fa-calendar-alt"></i> ${tour.duration}<br>
+                                <i class="fas fa-tag"></i> ${getTourTypeName(tour.type)}
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <button class="btn btn-outline-primary btn-sm" onclick="viewTourDetails(${tour.id})">
+                                    <i class="fas fa-info-circle"></i> Подробнее
+                                </button>
+                                <button class="btn btn-primary btn-sm" onclick="bookTourModal(${tour.id})" ${currentUser ? '' : 'disabled'}>
+                                    <i class="fas fa-shopping-cart"></i> Забронировать
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                toursList.appendChild(tourCard);
+            });
+        }
+
+        // Функция фильтрации по тегам
+        function filterToursByTag(filter) {
+            let filteredTours = tours;
+            
+            if (filter === 'featured') {
+                filteredTours = tours.filter(tour => tour.featured);
+            } else if (filter === 'beach') {
+                filteredTours = tours.filter(tour => tour.type === 'beach');
+            } else if (filter === 'excursion') {
+                filteredTours = tours.filter(tour => tour.type === 'excursion');
+            } else if (filter === 'hot') {
+                filteredTours = tours.filter(tour => tour.hot);
+            }
+            
+            // Обновление списка туров
+            const toursList = document.getElementById('toursList');
+            toursList.innerHTML = '';
+            
+            if (filteredTours.length === 0) {
+                toursList.innerHTML = '<div class="col-12 text-center"><p>По вашему запросу туров не найдено.</p></div>';
+                return;
+            }
+            
+            filteredTours.forEach(tour => {
+                const tourCard = document.createElement('div');
+                tourCard.className = `col-md-6 col-lg-4 mb-4`;
+                
+                // Генерация звезд рейтинга
+                let stars = '';
+                for (let i = 1; i <= 5; i++) {
+                    if (i <= Math.floor(tour.rating)) {
+                        stars += '<i class="fas fa-star"></i>';
+                    } else if (i === Math.ceil(tour.rating) && tour.rating % 1 !== 0) {
+                        stars += '<i class="fas fa-star-half-alt"></i>';
+                    } else {
+                        stars += '<i class="far fa-star"></i>';
+                    }
+                }
+                
+                tourCard.innerHTML = `
+                    <div class="card tour-card ${tour.featured ? 'featured' : ''} ${tour.hot ? 'hot' : ''}">
+                        <div class="position-relative">
+                            <img src="${tour.image}" class="card-img-top" alt="${tour.name}">
+                            ${tour.hot ? '<span class="badge bg-danger position-absolute top-0 start-0 m-2">Горящий тур</span>' : ''}
+                            <div class="price-tag">${tour.price.toLocaleString()} руб.</div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">${tour.name}</h5>
+                            <div class="rating">${stars} <span class="text-muted">${tour.rating}</span></div>
+                            <p class="card-text">
+                                <i class="fas fa-map-marker-alt"></i> ${getDestinationName(tour.destination)}<br>
+                                <i class="fas fa-calendar-alt"></i> ${tour.duration}<br>
+                                <i class="fas fa-tag"></i> ${getTourTypeName(tour.type)}
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <button class="btn btn-outline-primary btn-sm" onclick="viewTourDetails(${tour.id})">
+                                    <i class="fas fa-info-circle"></i> Подробнее
+                                </button>
+                                <button class="btn btn-primary btn-sm" onclick="bookTourModal(${tour.id})" ${currentUser ? '' : 'disabled'}>
+                                    <i class="fas fa-shopping-cart"></i> Забронировать
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                toursList.appendChild(tourCard);
+            });
+        }
+
+        // Функция проверки авторизации
+        function checkAuth() {
+            const savedUser = localStorage.getItem('currentUser');
+            if (savedUser) {
+                currentUser = JSON.parse(savedUser);
+                updateUIForUser();
+            }
+        }
+
+        // Функция входа в систему
+        function login() {
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            
+            // Проверка среди менеджеров
+            let user = managers.find(manager => manager.email === email && manager.password === password);
+            
+            // Если не менеджер, проверяем среди клиентов
+            if (!user) {
+                user = clients.find(client => client.email === email && client.password === password);
+            }
+            
+            if (user) {
+                currentUser = user;
+                localStorage.setItem('currentUser', JSON.stringify(user));
+                updateUIForUser();
+                
+                showNotification('Вы успешно вошли в систему!');
+                
+                const loginModal = bootstrap.Modal.getInstance(document.getElementById('loginModal'));
+                loginModal.hide();
+                
+                // Сброс формы
+                document.getElementById('loginForm').reset();
+            } else {
+                showNotification('Неверный email или пароль!', 'error');
+            }
+        }
+
+        // Функция регистрации
+        function register() {
+            const name = document.getElementById('registerName').value;
+            const email = document.getElementById('registerEmail').value;
+            const phone = document.getElementById('registerPhone').value;
+            const password = document.getElementById('registerPassword').value;
+            const passwordConfirm = document.getElementById('registerPasswordConfirm').value;
+            
+            if (password !== passwordConfirm) {
+                showNotification('Пароли не совпадают!', 'error');
+                return;
+            }
+            
+            // Проверка, нет ли уже пользователя с таким email
+            if (clients.find(client => client.email === email) || managers.find(manager => manager.email === email)) {
+                showNotification('Пользователь с таким email уже существует!', 'error');
+                return;
+            }
+            
+            // Создание нового пользователя
+            const newUser = {
+                id: clients.length + 1,
+                name: name,
+                phone: phone,
+                email: email,
+                password: password,
+                status: "Новый",
+                lastOrder: "",
+                type: "client"
+            };
+            
+            clients.push(newUser);
+            currentUser = newUser;
+            localStorage.setItem('currentUser', JSON.stringify(newUser));
+            updateUIForUser();
+            
+            showNotification('Регистрация прошла успешно!');
+            
+            const registerModal = bootstrap.Modal.getInstance(document.getElementById('registerModal'));
+            registerModal.hide();
+            
+            // Сброс формы
+            document.getElementById('registerForm').reset();
+        }
+
+        // Функция выхода из системы
+        function logout() {
+            currentUser = null;
+            localStorage.removeItem('currentUser');
+            updateUIForUser();
+            showNotification('Вы вышли из системы.');
+            
+            // Скрываем все специальные разделы
+            document.getElementById('admin').style.display = 'none';
+            document.getElementById('userBookings').style.display = 'none';
+            
+            // Показываем основной контент
+            document.querySelectorAll('section:not(.admin-section):not(.user-bookings)').forEach(section => {
+                section.style.display = 'block';
+            });
+        }
+
+        // Функция обновления интерфейса в зависимости от пользователя
+        function updateUIForUser() {
+            const userAvatar = document.getElementById('userAvatar');
+            const userName = document.getElementById('userName');
+            const clientMenu = document.getElementById('clientMenu');
+            const managerMenu = document.getElementById('managerMenu');
+            const logoutItem = document.getElementById('logoutItem');
+            const adminSection = document.getElementById('admin');
+            const userBookingsSection = document.getElementById('userBookings');
+            
+            if (currentUser) {
+                userAvatar.textContent = currentUser.name.charAt(0);
+                userName.textContent = currentUser.name.split(' ')[0];
+                
+                clientMenu.classList.remove('d-none');
+                logoutItem.classList.remove('d-none');
+                
+                if (currentUser.type === 'manager') {
+                    managerMenu.classList.remove('d-none');
+                } else {
+                    managerMenu.classList.add('d-none');
+                    adminSection.style.display = 'none';
+                }
+            } else {
+                userAvatar.textContent = 'Г';
+                userName.textContent = 'Гость';
+                clientMenu.classList.add('d-none');
+                managerMenu.classList.add('d-none');
+                logoutItem.classList.add('d-none');
+                adminSection.style.display = 'none';
+                userBookingsSection.style.display = 'none';
+            }
+            
+            // Обновление кнопок бронирования
+            document.querySelectorAll('.btn-primary.btn-sm').forEach(btn => {
+                if (currentUser) {
+                    btn.disabled = false;
+                } else {
+                    btn.disabled = true;
+                }
+            });
+        }
+
+        // Функция загрузки данных для админ-панели
+        function loadAdminData() {
+            // Обновление статистики
+            document.getElementById('totalClients').textContent = clients.filter(c => c.type === 'client').length;
+            document.getElementById('totalBookings').textContent = bookings.length;
+            document.getElementById('totalRevenue').textContent = bookings.reduce((sum, booking) => sum + booking.price, 0).toLocaleString();
+            document.getElementById('avgRating').textContent = '4.7';
+            
+            // Заполнение таблицы клиентов
+            const clientsTable = document.getElementById('clientsTable');
+            clientsTable.innerHTML = '';
+            
+            clients.filter(c => c.type === 'client').forEach(client => {
+                const row = document.createElement('tr');
+                
+                let statusBadge = '';
+                switch(client.status) {
+                    case 'VIP':
+                        statusBadge = '<span class="badge bg-warning">VIP</span>';
+                        break;
+                    case 'Постоянный':
+                        statusBadge = '<span class="badge bg-success">Постоянный</span>';
+                        break;
+                    case 'Новый':
+                        statusBadge = '<span class="badge bg-info">Новый</span>';
+                        break;
+                }
+                
+                row.innerHTML = `
+                    <td>${client.id}</td>
+                    <td>${client.name}</td>
+                    <td>${client.phone}</td>
+                    <td>${client.email}</td>
+                    <td>${statusBadge}</td>
+                    <td>
+                        <button class="btn btn-sm btn-outline-primary" title="Редактировать" onclick="editClient(${client.id})">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="btn btn-sm btn-outline-info" title="История заказов" onclick="viewClientHistory(${client.id})">
+                            <i class="fas fa-history"></i>
+                        </button>
+                    </td>
+                `;
+                
+                clientsTable.appendChild(row);
+            });
+            
+            // Заполнение таблицы бронирований
+            const bookingsTable = document.getElementById('bookingsTable');
+            bookingsTable.innerHTML = '';
+            
+            bookings.forEach(booking => {
+                const row = document.createElement('tr');
+                
+                let statusBadge = '';
+                switch(booking.status) {
+                    case 'Подтвержден':
+                        statusBadge = '<span class="badge bg-primary">Подтвержден</span>';
+                        break;
+                    case 'Оплачен':
+                        statusBadge = '<span class="badge bg-success">Оплачен</span>';
+                        break;
+                    case 'Завершен':
+                        statusBadge = '<span class="badge bg-secondary">Завершен</span>';
+                        break;
+                    case 'Отменен':
+                        statusBadge = '<span class="badge bg-danger">Отменен</span>';
+                        break;
+                }
+                
+                row.innerHTML = `
+                    <td>${booking.id}</td>
+                    <td>${booking.clientName}</td>
+                    <td>${booking.tour}</td>
+                    <td>${formatDate(booking.date)}</td>
+                    <td>${booking.price.toLocaleString()} руб.</td>
+                    <td>${statusBadge}</td>
+                `;
+                
+                bookingsTable.appendChild(row);
+            });
+        }
+
+        // Функция открытия модального окна бронирования
+        function bookTourModal(tourId) {
+            if (!currentUser) {
+                showNotification('Для бронирования тура необходимо войти в систему.', 'error');
+                showLoginModal();
+                return;
+            }
+            
+            const tour = tours.find(t => t.id === tourId);
+            if (!tour) return;
+            
+            document.getElementById('bookingTourName').textContent = tour.name;
+            document.getElementById('bookingTourDetails').textContent = 
+                `${getDestinationName(tour.destination)} • ${tour.duration} • ${getTourTypeName(tour.type)}`;
+            document.getElementById('bookingTourPrice').textContent = `${tour.price.toLocaleString()} руб.`;
+            
+            // Установка минимальной даты (сегодня + 7 дней)
+            const minDate = new Date();
+            minDate.setDate(minDate.getDate() + 7);
+            document.getElementById('bookingDate').min = minDate.toISOString().split('T')[0];
+            
+            const bookingModal = new bootstrap.Modal(document.getElementById('bookingModal'));
+            bookingModal.show();
+        }
+
+        // Функция бронирования тура
+        function bookTour() {
+            if (!currentUser) {
+                showNotification('Для бронирования тура необходимо войти в систему.', 'error');
+                return;
+            }
+            
+            const tourName = document.getElementById('bookingTourName').textContent;
+            const persons = document.getElementById('bookingPersons').value;
+            const date = document.getElementById('bookingDate').value;
+            
+            // Расчет стоимости с учетом дополнительных услуг
+            let totalPrice = parseInt(document.getElementById('bookingTourPrice').textContent.replace(/\D/g, ''));
+            
+            if (document.getElementById('transferService').checked) {
+                totalPrice += 5000;
+            }
+            if (document.getElementById('insuranceService').checked) {
+                totalPrice += 3000;
+            }
+            if (document.getElementById('excursionService').checked) {
+                totalPrice += 7000;
+            }
+            
+            // Создание бронирования
+            const newBooking = {
+                id: bookings.length + 1001,
+                clientId: currentUser.id,
+                clientName: currentUser.name,
+                tour: tourName,
+                date: date,
+                persons: persons,
+                price: totalPrice,
+                status: "Подтвержден"
+            };
+            
+            bookings.push(newBooking);
+            
+            showNotification(`Тур "${tourName}" успешно забронирован! Наш менеджер свяжется с вами в ближайшее время.`);
+            
+            const bookingModal = bootstrap.Modal.getInstance(document.getElementById('bookingModal'));
+            bookingModal.hide();
+            
+            // Сброс формы
+            document.getElementById('bookingForm').reset();
+        }
+
+        // Функция просмотра деталей тура
+        function viewTourDetails(tourId) {
+            const tour = tours.find(t => t.id === tourId);
+            if (!tour) return;
+            
+            // В реальном приложении здесь было бы модальное окно с деталями
+            showNotification(`Подробная информация о туре "${tour.name}"`, 'info');
+        }
+
+        // Функция показа модального окна входа
+        function showLoginModal() {
+            const loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
+            loginModal.show();
+        }
+
+        // Функция показа модального окна регистрации
+        function showRegisterModal() {
+            const registerModal = new bootstrap.Modal(document.getElementById('registerModal'));
+            registerModal.show();
+        }
+
+        // Функция показа бронирований пользователя
+        function showUserBookings() {
+            // Скрываем все разделы
+            document.querySelectorAll('section').forEach(section => {
+                section.style.display = 'none';
+            });
+            
+            // Показываем раздел с бронированиями
+            const userBookingsSection = document.getElementById('userBookings');
+            userBookingsSection.style.display = 'block';
+            
+            // Загружаем бронирования пользователя
+            const userBookingsList = document.getElementById('userBookingsList');
+            userBookingsList.innerHTML = '';
+            
+            const userBookings = bookings.filter(booking => booking.clientId === currentUser.id);
+            
+            if (userBookings.length === 0) {
+                userBookingsList.innerHTML = '<div class="alert alert-info">У вас пока нет бронирований.</div>';
+                return;
+            }
+            
+            userBookings.forEach(booking => {
+                const bookingCard = document.createElement('div');
+                bookingCard.className = `card booking-card ${booking.status === 'Отменен' ? 'cancelled' : ''} ${booking.status === 'Завершен' ? 'completed' : ''}`;
+                
+                bookingCard.innerHTML = `
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h5 class="card-title">${booking.tour}</h5>
+                                <p class="card-text mb-1"><strong>Дата:</strong> ${formatDate(booking.date)}</p>
+                                <p class="card-text mb-1"><strong>Количество человек:</strong> ${booking.persons}</p>
+                                <p class="card-text mb-1"><strong>Стоимость:</strong> ${booking.price.toLocaleString()} руб.</p>
+                            </div>
+                            <div class="text-end">
+                                <span class="badge ${getStatusBadgeClass(booking.status)}">${booking.status}</span>
+                                <p class="mt-2 text-muted">ID: ${booking.id}</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                userBookingsList.appendChild(bookingCard);
+            });
+        }
+
+        // Функция показа админ-панели
+        function showAdminPanel() {
+            // Скрываем все разделы
+            document.querySelectorAll('section').forEach(section => {
+                section.style.display = 'none';
+            });
+            
+            // Показываем админ-панель
+            const adminSection = document.getElementById('admin');
+            adminSection.style.display = 'block';
+            
+            // Загружаем данные для админ-панели
+            loadAdminData();
+        }
+
+        // Функции для админ-панели
+        function addClient() {
+            showNotification('Функция добавления клиента будет реализована в полной версии системы.', 'info');
+        }
+
+        function editClient(clientId) {
+            showNotification(`Редактирование клиента с ID: ${clientId} будет реализовано в полной версии системы.`, 'info');
+        }
+
+        function viewClientHistory(clientId) {
+            showNotification(`Просмотр истории заказов клиента с ID: ${clientId} будет реализован в полной версии системы.`, 'info');
+        }
+
+        // Вспомогательные функции
+        function getDestinationName(destination) {
+            const destinations = {
+                'turkey': 'Турция',
+                'egypt': 'Египет',
+                'thailand': 'Тайланд',
+                'greece': 'Греция',
+                'spain': 'Испания',
+                'cyprus': 'Кипр',
+                'kenya': 'Кения',
+                'uae': 'ОАЭ'
+            };
+            return destinations[destination] || destination;
+        }
+
+        function getTourTypeName(type) {
+            const types = {
+                'beach': 'Пляжный отдых',
+                'excursion': 'Экскурсионный',
+                'cruise': 'Круиз',
+                'ski': 'Горнолыжный',
+                'safari': 'Сафари'
+            };
+            return types[type] || type;
+        }
+
+        function formatDate(dateString) {
+            const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
+            return new Date(dateString).toLocaleDateString('ru-RU', options);
+        }
+
+        function getStatusBadgeClass(status) {
+            switch(status) {
+                case 'Подтвержден': return 'bg-primary';
+                case 'Оплачен': return 'bg-success';
+                case 'Завершен': return 'bg-secondary';
+                case 'Отменен': return 'bg-danger';
+                default: return 'bg-info';
+            }
+        }
+
+        function showNotification(message, type = 'success') {
+            const notification = document.getElementById('notification');
+            const notificationText = document.getElementById('notification-text');
+            
+            notificationText.textContent = message;
+            
+            // Изменение стиля уведомления в зависимости от типа
+            notification.className = 'alert notification';
+            if (type === 'success') {
+                notification.classList.add('alert-success');
+            } else if (type === 'error') {
+                notification.classList.add('alert-danger');
+            } else if (type === 'info') {
+                notification.classList.add('alert-info');
+            }
+            
+            notification.style.display = 'block';
+            
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
